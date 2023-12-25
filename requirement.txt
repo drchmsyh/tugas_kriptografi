@@ -1,4 +1,4 @@
 streamlit
 pandas
-stramlit-extras
+streamlit-extras
 markdownlit
