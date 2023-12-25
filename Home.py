@@ -1,12 +1,12 @@
 import streamlit as st
-# from streamlit_extras.colored_header import colored_header
+from streamlit_extras.colored_header import colored_header
 from markdownlit import mdlit
 
-# colored_header(
-#     label="Tugas Kriptografi",
-#     description="Dirchamsyah | A11.2021.13610 | A11.4302",
-#     color_name="blue-70",
-# )
+colored_header(
+    label="Tugas Kriptografi",
+    description="Dirchamsyah | A11.2021.13610 | A11.4302",
+    color_name="blue-70",
+)
 mdlit(
         """Aplikasi yang dibuat untuk memenuhi kebutuhan pengerjaan tugas mata kuliah Kriptografi. Aplikasi ini menyajikan berbagai algoritma seperti Homofonic Cipher, Playfair Cipher, dan Stream Cipher, dan Block Cipher - CBC (Cipher Block Chaining)
     """

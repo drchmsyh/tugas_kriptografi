@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import random
-# from streamlit_extras.colored_header import colored_header
+from streamlit_extras.colored_header import colored_header
 
 
 # Fungsi untuk melakukan enkripsi
@@ -40,11 +40,11 @@ def decrypt_homophonic(ciphertext, substitution_matrix):
     return plaintext
 
 def main():
-    # colored_header(
-    # label="Tugas 1 - Homofonic",
-    # description="Dirchamsyah | A11.2021.13610 | A11.4302",
-    # color_name="blue-70",
-    # )
+    colored_header(
+    label="Tugas 1 - Homofonic",
+    description="Dirchamsyah | A11.2021.13610 | A11.4302",
+    color_name="blue-70",
+    )
 
     # Matriks substitusi homofonik yang sudah ditentukan
     substitution_matrix = {
