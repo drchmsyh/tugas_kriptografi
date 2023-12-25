@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from streamlit_extras.colored_header import colored_header
+# from streamlit_extras.colored_header import colored_header
 
 def display_table(data):
     st.table(data)
@@ -52,11 +52,11 @@ def xor_operation(binary_text, repeated_key):
 
 def main():
 
-    colored_header(
-    label="Tugas 3 - Stream",
-    description="Dirchamsyah | A11.2021.13610 | A11.4302",
-    color_name="blue-70",
-    )
+    # colored_header(
+    # label="Tugas 3 - Stream",
+    # description="Dirchamsyah | A11.2021.13610 | A11.4302",
+    # color_name="blue-70",
+    # )
 
     pilih = st.radio('Pilih Opsi Berikut:', ['Enkripsi','Dekripsi'])
 

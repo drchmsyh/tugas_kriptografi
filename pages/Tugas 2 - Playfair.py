@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from streamlit_extras.colored_header import colored_header
+# from streamlit_extras.colored_header import colored_header
 
 
 def cleaning_key(key):
@@ -116,11 +116,11 @@ def encrypt_playfair(plaintext, matrix):
 
 def main():
 
-    colored_header(
-    label="Tugas 2 - Playfair",
-    description="Dirchamsyah | A11.2021.13610 | A11.4302",
-    color_name="blue-70",
-    )
+    # colored_header(
+    # label="Tugas 2 - Playfair",
+    # description="Dirchamsyah | A11.2021.13610 | A11.4302",
+    # color_name="blue-70",
+    # )
 
     
     st.subheader("Key Matriks")

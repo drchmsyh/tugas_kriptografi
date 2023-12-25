@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from streamlit_extras.colored_header import colored_header
+# from streamlit_extras.colored_header import colored_header
 
 def display_table(data):
     st.table(data)
@@ -78,11 +78,11 @@ def encrypt_cbc(plaintext, key, iv):
 
 
 def main():
-    colored_header(
-        label="Tugas 4 - Block - CBC",
-        description="Dirchamsyah | A11.2021.13610 | A11.4302",
-        color_name="blue-70",
-    )
+    # colored_header(
+    #     label="Tugas 4 - Block - CBC",
+    #     description="Dirchamsyah | A11.2021.13610 | A11.4302",
+    #     color_name="blue-70",
+    # )
 
     st.write('Enkripsi Block Cipher - CBC')
     plaintext = st.text_input("Masukkan plaintext : ")
