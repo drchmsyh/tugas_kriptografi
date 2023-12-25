@@ -92,7 +92,10 @@ def main():
         encrypt_button = st.button("Enkripsi")
 
         if encrypt_button:
-            st.write("Ciphertext:", encrypted_text)
+            if(plaintext==''):
+                st.warning("Masukkan Plaintext")
+            else:
+                st.write("Ciphertext:", encrypted_text)
     else:
         
         ciphertext = st.text_input("Masukkan ciphertext: ")
@@ -101,7 +104,10 @@ def main():
         decrypt_button = st.button("Dekripsi")
 
         if decrypt_button:
-            st.write("Plaintext:", decrypted_text)
+            if(ciphertext==''):
+                st.warning("Masukkan Ciphertext")
+            else:
+                st.write("Plaintext:", decrypted_text)
 
 if __name__ == '__main__':
     main()

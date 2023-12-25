@@ -97,56 +97,43 @@ def main():
 
     if encrypt_button:
         # Periksa kondisi input
-        
-        if is_binary_and_length_4(key) and is_binary_and_length_4(iv):
-            
-            plaintext_biner = text_to_binary(plaintext)
-
-            
-
-            rs = encrypt_cbc(plaintext_biner, key, iv)
-
-            st.subheader("Ciphertext :")
-            st.write( rs['ciphertext'].iloc[-1])
-
-            with st.expander("Lihat Detail"):
-
-                st.subheader("Input Data Values :")
-                input_values.append({
-                    'Plaintext': plaintext,
-                    'Plaintext Biner': plaintext_biner,
-                    'Key': key,
-                    'Initial Vector' : iv
-                })
-
-                df = pd.DataFrame(input_values)
-                transposed_df = df.transpose()
-                display_table(transposed_df)
-                
-
-
-                st.subheader("Block Ciphering - CBC  :")
-                result_df = rs.drop(index=rs.index[-1], columns='ciphertext')
-                transposed_rs = result_df.transpose()
-
-                display_table(transposed_rs)
-
+        if(plaintext==''):
+            st.warning('Plaintext masih kosong')
         else:
-            st.warning("Input kunci dan iv harus berupa biner dan berjumlah 4 bit.")
-        
-    #     plaintext_binary = ascii_to_binary(plaintext)
-    #     key_binary = key_repeated(plaintext, key)
-    #     encrypted_text = xor_cipher(plaintext, key)
-    #     encrypted_text_wrap = wrap_4bit(encrypted_text)
+            if is_binary_and_length_4(key) and is_binary_and_length_4(iv):
+                
+                plaintext_biner = text_to_binary(plaintext)
 
-    #     st.write('Wrapping Ciphertext : ', encrypted_text_wrap)
+                rs = encrypt_cbc(plaintext_biner, key, iv)
 
-    #     with st.expander("Lihat Detail"):
-    #         data = {'Binary Plaintext': [plaintext_binary], 'Binary Repeated Key': [key_binary], 'Ciphertext': [encrypted_text],'Wrapping Ciphertext ': [encrypted_text_wrap] }
-    #         df = pd.DataFrame(data)
-            
-    #         transposed_df = df.transpose()
-    #         display_table(transposed_df)
+                st.subheader("Ciphertext :")
+                st.write( rs['ciphertext'].iloc[-1])
+
+                with st.expander("Lihat Detail"):
+
+                    st.subheader("Input Data Values :")
+                    input_values.append({
+                        'Plaintext': plaintext,
+                        'Plaintext Biner': plaintext_biner,
+                        'Key': key,
+                        'Initial Vector' : iv
+                    })
+
+                    df = pd.DataFrame(input_values)
+                    transposed_df = df.transpose()
+                    display_table(transposed_df)
+                    
+
+
+                    st.subheader("Block Ciphering - CBC  :")
+                    result_df = rs.drop(index=rs.index[-1], columns='ciphertext')
+                    transposed_rs = result_df.transpose()
+
+                    display_table(transposed_rs)
+
+            else:
+                st.warning("Input kunci dan iv harus berupa biner dan berjumlah 4 bit.")
+
 
 if __name__ == '__main__':
     main()

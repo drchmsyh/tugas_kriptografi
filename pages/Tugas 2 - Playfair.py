@@ -161,19 +161,21 @@ def main():
     encrypt_button = st.button("Enkripsi")
 
     if encrypt_button:
-        
-        plaintext = plaintext.replace(" ", "").replace("J", "I")
-        bigramtext = bigram(plaintext)
-        ciphertext = encrypt_playfair(plaintext, define_matrix)
-        
-        st.write("Ciphertext :", ciphertext)
-
-        with st.expander("Lihat Detail"):
-            data = {'Plaintext': [plaintext], 'Bigram Rule': [bigramtext], 'Ciphertext': [ciphertext]}
-            df = pd.DataFrame(data)
+        if(cleaning_key(plaintext)==''):
+            st.warning("Plaintext Kosong/Tidak Valid")
+        else:
+            plaintext = plaintext.replace(" ", "").replace("J", "I")
+            bigramtext = bigram(plaintext)
+            ciphertext = encrypt_playfair(plaintext, define_matrix)
             
-            transposed_df = df.transpose()
-            display_table(transposed_df)
+            st.write("Ciphertext :", ciphertext)
+
+            with st.expander("Lihat Detail"):
+                data = {'Plaintext': [plaintext], 'Bigram Rule': [bigramtext], 'Ciphertext': [ciphertext]}
+                df = pd.DataFrame(data)
+                
+                transposed_df = df.transpose()
+                display_table(transposed_df)
 
 if __name__ == '__main__':
     main()

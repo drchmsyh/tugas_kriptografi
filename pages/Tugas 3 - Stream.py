@@ -69,20 +69,22 @@ def main():
         #Button
         encrypt_button = st.button("Enkripsi")
         if encrypt_button:
-            
-            plaintext_binary = ascii_to_binary(plaintext)
-            keytext_binary = key_repeated_encrypt(plaintext, keytext)
-            xor_result = xor_operation(plaintext_binary, keytext_binary)
+            if(plaintext=='' or keytext==''):
+                st.warning('Plaintext/Key masih kosong')
+            else:
+                plaintext_binary = ascii_to_binary(plaintext)
+                keytext_binary = key_repeated_encrypt(plaintext, keytext)
+                xor_result = xor_operation(plaintext_binary, keytext_binary)
 
-            st.write('Ciphertext : ', xor_result)
+                st.write('Ciphertext : ', xor_result)
 
-            with st.expander("Lihat Detail"):
-                # Menyimpan data ke DataFrame
-                data = {'Binary Plaintext': [plaintext_binary] , 'Binary Repeated Key': [keytext_binary], 'Ciphertext': [xor_result]}
-                df = pd.DataFrame(data)
-                
-                transposed_df = df.transpose()
-                display_table(transposed_df)
+                with st.expander("Lihat Detail"):
+                    # Menyimpan data ke DataFrame
+                    data = {'Binary Plaintext': [plaintext_binary] , 'Binary Repeated Key': [keytext_binary], 'Ciphertext': [xor_result]}
+                    df = pd.DataFrame(data)
+                    
+                    transposed_df = df.transpose()
+                    display_table(transposed_df)
             
     else:
 
@@ -94,20 +96,23 @@ def main():
         #Button
         decrypt_button = st.button("Dekripsi")
         if decrypt_button:
+            if(ciphertext=='' or keytext==''):
+                st.warning('Ciphertext/Key masih kosong')
+            else:
 
-            keytext_binary = key_repeated_decrypt(ciphertext, keytext)
-            xor_result = xor_operation(ciphertext, keytext_binary)
-            decrypted_text = binary_to_ascii(xor_result)
+                keytext_binary = key_repeated_decrypt(ciphertext, keytext)
+                xor_result = xor_operation(ciphertext, keytext_binary)
+                decrypted_text = binary_to_ascii(xor_result)
 
-            st.write('Plaintext : ', decrypted_text)
+                st.write('Plaintext : ', decrypted_text)
 
-            with st.expander("Lihat Detail"):
-                # Menyimpan data ke DataFrame
-                data = {'Ciphertext': [ciphertext] , 'Binary Repeated Key': [keytext_binary], 'XOR Result': [xor_result], 'Plaintext':[decrypted_text]}
-                df = pd.DataFrame(data)
-                
-                transposed_df = df.transpose()
-                display_table(transposed_df)
+                with st.expander("Lihat Detail"):
+                    # Menyimpan data ke DataFrame
+                    data = {'Ciphertext': [ciphertext] , 'Binary Repeated Key': [keytext_binary], 'XOR Result': [xor_result], 'Plaintext':[decrypted_text]}
+                    df = pd.DataFrame(data)
+                    
+                    transposed_df = df.transpose()
+                    display_table(transposed_df)
 
 if __name__ == '__main__':
     main()
