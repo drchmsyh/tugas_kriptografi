@@ -1,5 +1,7 @@
 # Welcome 👋 Tugas Kriptografi
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://kriptografi-dirchamsyah.streamlit.app/)
+
 Nama : Dirchamsyah
 
 NIM : A11.2021.13610
