@@ -28,6 +28,6 @@ pip install markdownlit
 
 Now run it to open the app!
 
-```
+```bash
 streamlit run Home.py
 ```
