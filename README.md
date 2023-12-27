@@ -1,5 +1,3 @@
-<br>
-
 # Welcome 👋 Tugas Kriptografi
 
 Nama : Dirchamsyah
@@ -31,5 +29,5 @@ pip install markdownlit
 Now run it to open the app!
 
 ```
-$ streamlit run Home.py
+streamlit run Home.py
 ```
